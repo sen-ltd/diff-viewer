@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diff Viewer — テキスト・JSON 差分比較</title>
+  <meta name="description" content="テキスト・JSON を色分け diff 表示。統合・横並び・インラインの 3 モード。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1 id="app-title">Diff Viewer</h1>
+        <p id="app-subtitle">テキスト・JSON の差分比較ツール</p>
+      </div>
+      <div class="header-controls">
+        <button id="lang-toggle" class="btn btn-ghost" aria-label="Switch language">English</button>
+        <button id="theme-toggle" class="btn btn-ghost" aria-label="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- Input pane -->
+    <section class="input-pane">
+      <div class="textarea-group">
+        <label id="original-label" for="original-text">変更前</label>
+        <textarea
+          id="original-text"
+          class="code-area"
+          placeholder="変更前のテキストをここに入力..."
+          spellcheck="false"
+          autocorrect="off"
+          autocomplete="off"
+        ></textarea>
+      </div>
+      <div class="textarea-group">
+        <label id="modified-label" for="modified-text">変更後</label>
+        <textarea
+          id="modified-text"
+          class="code-area"
+          placeholder="変更後のテキストをここに入力..."
+          spellcheck="false"
+          autocorrect="off"
+          autocomplete="off"
+        ></textarea>
+      </div>
+    </section>
+
+    <!-- Toolbar -->
+    <section class="toolbar">
+      <div class="toolbar-left">
+        <button id="compare-btn" class="btn btn-primary">比較する</button>
+        <button id="sample-btn" class="btn btn-secondary">サンプル</button>
+        <button id="clear-btn" class="btn btn-secondary">クリア</button>
+        <button id="copy-btn" class="btn btn-secondary">コピー</button>
+      </div>
+      <div class="toolbar-right mode-tabs" role="tablist" aria-label="Diff mode">
+        <button id="mode-unified" class="btn mode-tab active" role="tab" aria-selected="true">統合</button>
+        <button id="mode-side" class="btn mode-tab" role="tab" aria-selected="false">横並び</button>
+        <button id="mode-inline" class="btn mode-tab" role="tab" aria-selected="false">インライン</button>
+      </div>
+    </section>
+
+    <!-- Semantic toggle -->
+    <section class="semantic-section" style="display:none">
+      <label class="toggle-label">
+        <input type="checkbox" id="semantic-toggle" />
+        <span id="semantic-label">JSON 意味 diff（キー順序を無視）</span>
+      </label>
+      <p id="semantic-hint" class="hint-text" style="display:none"></p>
+    </section>
+
+    <!-- Stats bar -->
+    <section id="stats-bar" class="stats-bar" style="display:none" aria-live="polite"></section>
+
+    <!-- Diff output -->
+    <section id="diff-output" class="diff-output" aria-label="Diff result" aria-live="polite"></section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Diff Viewer — Zero dependencies, no build step.
+      <a href="https://github.com/masaru87/diff-viewer" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
