@@ -46,3 +46,10 @@ Node.js v18+ の組み込みテストランナーを使用。
 ## ライセンス
 
 MIT. See [LICENSE](./LICENSE).
+
+<!-- sen-publish:links -->
+## Links
+
+- 🌐 Demo: https://sen.ltd/portfolio/diff-viewer/
+- 📝 dev.to: https://dev.to/sendotltd/a-text-and-json-diff-viewer-with-lcs-algorithm-and-semantic-comparison-59h2
+<!-- /sen-publish:links -->
